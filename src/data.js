@@ -1015,4 +1015,132 @@ export const ontology = [
         target: "Donjon des Tofus",
         relation: "pvm:types"
     },
+
+    // ===================================================================================
+    // Butin
+    // ===================================================================================
+
+    {
+        source: "Ressources",
+        target: "Butin",
+        relation: "pvm:est"
+    },
+    {
+        source: "Equipements",
+        target: "Butin",
+        relation: "pvm:est"
+    },
+
+    // ===================================================================================
+    // Butin des Monstres
+    // ===================================================================================
+
+    // Bouftous --------------------------------------------------------------------------
+    {
+        source: "Oeil de Boufton",
+        target: "Ressources",
+        relation: "pvm:butin"
+    },
+    {
+        source: "Corne de Boufton",
+        target: "Ressources",
+        relation: "pvm:butin"
+    },
+    {
+        source: "Cuir de Bouftou Royal",
+        target: "Ressources",
+        relation: "pvm:butin"
+    },
+    {
+        source: "Laine de Bouftou Royal",
+        target: "Ressources",
+        relation: "pvm:butin"
+    },
+    {
+        source: "Corne de Chef de Guerre Bouftou",
+        target: "Ressources",
+        relation: "pvm:butin"
+    },
+    {
+        source: "Laine du Chef de Guerre Bouftou",
+        target: "Ressources",
+        relation: "pvm:butin"
+    },
+    {
+        source: "Cuir de Bouftou Noir",
+        target: "Ressources",
+        relation: "pvm:butin"
+    },
+    {
+        source: "Sang de Bouftou",
+        target: "Ressources",
+        relation: "pvm:butin"
+    },
+    {
+        source: "Laine de Bouftou",
+        target: "Ressources",
+        relation: "pvm:butin"
+    },
+
+    // ===================================================================================
+    // Loot des Monstres
+    // ===================================================================================
+
+    // Bouftous --------------------------------------------------------------------------
+    {
+        source: "Oeil de Boufton",
+        target: "Boufton Noir",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Corne de Boufton",
+        target: "Boufton Noir",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Oeil de Boufton",
+        target: "Boufton Blanc",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Corne de Boufton",
+        target: "Boufton Blanc",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Cuir de Bouftou Royal",
+        target: "Bouftou Royal",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Laine de Bouftou Royal",
+        target: "Bouftou Royal",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Corne de Chef de Guerre Bouftou",
+        target: "Chef de Guerre Bouftou",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Laine du Chef de Guerre Bouftou",
+        target: "Chef de Guerre Bouftou",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Cuir de Bouftou Noir",
+        target: "Bouftou Noir",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Sang de Bouftou",
+        target: "Bouftou",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Laine de Bouftou",
+        target: "Bouftou",
+        relation: "pvm:lootby"
+    },
+
 ];
