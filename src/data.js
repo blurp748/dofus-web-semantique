@@ -67,6 +67,39 @@ export default ontology = [
         target: "Bouftous",
         relation: "pvm:race"
     },
+    
+    // Pious -----------------------------------------------------------------------------
+    {
+        source: "Piou Bleu",
+        target: "Pious",
+        relation: "pvm:race"
+    },
+    {
+        source: "Piou Jaune",
+        target: "Pious",
+        relation: "pvm:race"
+    },
+    {
+        source: "Piou Rose",
+        target: "Pious",
+        relation: "pvm:race"
+    },
+    {
+        source: "Piou Rouge",
+        target: "Pious",
+        relation: "pvm:race"
+    },
+    {
+        source: "Piou Vert",
+        target: "Pious",
+        relation: "pvm:race"
+    },
+    {
+        source: "Piou Violet",
+        target: "Pious",
+        relation: "pvm:race"
+    },
+
     // ===================================================================================
     // Types
     // ===================================================================================
@@ -130,6 +163,39 @@ export default ontology = [
         target: "Monstre",
         relation: "pvm:types"
     },
+
+    // Pious -----------------------------------------------------------------------------
+    {
+        source: "Piou Bleu",
+        target: "Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Piou Jaune",
+        target: "Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Piou Rose",
+        target: "Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Piou Rouge",
+        target: "Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Piou Vert",
+        target: "Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Piou Violet",
+        target: "Monstre",
+        relation: "pvm:types"
+    },
+
     // ===================================================================================
     // Zones
     // ===================================================================================
@@ -140,6 +206,16 @@ export default ontology = [
     },
     {
         source: "Coin des Bouftous",
+        target: "Zone",
+        relation: "pvm:est"
+    },
+    {
+        source: "Village d'Amakna",
+        target: "Zone",
+        relation: "pvm:est"
+    },
+    {
+        source: "Astrub",
         target: "Zone",
         relation: "pvm:est"
     },
@@ -183,9 +259,108 @@ export default ontology = [
         target: "Tainéla",
         relation: "pvm:zone"
     },
+    {
+        source: "Ballotin le bouftou",
+        target: "Coin des Bouftous",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Bouftou",
+        target: "Coin des Bouftous",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Boufton Blanc",
+        target: "Coin des Bouftous",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Boufton Noir",
+        target: "Coin des Bouftous",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Bouftou Noir",
+        target: "Coin des Bouftous",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Chef de Guerre Bouftou",
+        target: "Coin des Bouftous",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Bouftou d'Halouine",
+        target: "Coin des Bouftous",
+        relation: "pvm:zone"
+    },
+
+    // Pious -----------------------------------------------------------------------------
+    {
+        source: "Piou Bleu",
+        target: "Astrub",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Piou Jaune",
+        target: "Astrub",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Piou Rose",
+        target: "Astrub",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Piou Rouge",
+        target: "Astrub",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Piou Vert",
+        target: "Astrub",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Piou Violet",
+        target: "Astrub",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Piou Bleu",
+        target: "Village d'Amakna",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Piou Jaune",
+        target: "Village d'Amakna",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Piou Rose",
+        target: "Village d'Amakna",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Piou Rouge",
+        target: "Village d'Amakna",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Piou Vert",
+        target: "Village d'Amakna",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Piou Violet",
+        target: "Village d'Amakna",
+        relation: "pvm:zone"
+    },
+    
     // ===================================================================================
     // Donjons
     // ===================================================================================
+
     {
         source: "Donjon Bouftous",
         target: "Donjon",
@@ -201,6 +376,7 @@ export default ontology = [
         target: "Donjon",
         relation: "pvm:est"
     },
+    
     // ===================================================================================
     // Donjons des Monstres
     // ===================================================================================
