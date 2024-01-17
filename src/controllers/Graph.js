@@ -169,7 +169,7 @@ class Graph {
 
         let startOffsetX = Math.cos(angle) * 20;
         let startOffsetY = Math.sin(angle) * 20;
-        let endOffsetX = Math.cos(angle) * 20;
+        let endOffsetX = Math.cos(angle) * 20
         let endOffsetY = Math.sin(angle) * 20;
 
         this.ctx.beginPath();
