@@ -37,9 +37,6 @@ class Graph {
         let newMouseX = mouseX * this.zoomFactor;
         let newMouseY = mouseY * this.zoomFactor;
         this.ctx.translate(mouseX - newMouseX, mouseY - newMouseY);
-        // Clear the canvas
-
-
         // Adjust the canvas transformation based on the new zoom factor
         this.ctx.scale(this.zoomFactor, this.zoomFactor);
 
@@ -155,20 +152,6 @@ class Graph {
 
     isConnectionDrawn(connectionKey, offset) {
         return this.drawnConnections[`${connectionKey}-${offset}`];
-    }
-
-    drawConnectionFE(from, to) {
-        let startX = from.x < to.x ? from.x + 20 : from.x - 20;
-        let startY = from.y;
-        let endX = to.x < from.x ? to.x + 20 : to.x - 20;
-        let endY = to.y;
-
-        this.ctx.beginPath();
-        this.ctx.moveTo(startX, startY);
-        this.ctx.lineTo(endX, endY);
-        this.ctx.strokeStyle = 'black';
-        this.ctx.lineWidth = 2;
-        this.ctx.stroke();
     }
 
     drawArrowWithOffset(fromX, fromY, toX, toY, offset, direction, relation) {
