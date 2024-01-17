@@ -1,6 +1,9 @@
 class Graph {
     constructor(elements, connections, canvas) {
         this.canvas = canvas;
+        this.zoomFactor = 1.0;
+        this.zoomIncrement = 0.1;
+
         this.elements = elements;
         Object.keys(elements).forEach((k,e)=>{
             console.log(k,e,elements[k])
@@ -21,16 +24,48 @@ class Graph {
         this.offsetY = 0;
     }
 
-    /**
-     * 
-     */
+
+    handleZoom(e) {
+        e.preventDefault();
+        let zoomDirection = e.deltaY > 0 ? -1 : 1; // Check scroll direction
+
+        let rect = this.canvas.getBoundingClientRect();
+        let mouseX = e.clientX - rect.left;
+        let mouseY = e.clientY - rect.top;
+        // Adjust the zoom factor within a specified range (e.g., 0.1 to 3.0)
+        this.zoomFactor = Math.min(Math.max(this.zoomFactor + this.zoomIncrement * zoomDirection, 0.1), 3.0);
+        let newMouseX = mouseX * this.zoomFactor;
+        let newMouseY = mouseY * this.zoomFactor;
+        this.ctx.translate(mouseX - newMouseX, mouseY - newMouseY);
+        // Clear the canvas
+
+
+        // Adjust the canvas transformation based on the new zoom factor
+        this.ctx.scale(this.zoomFactor, this.zoomFactor);
+
+        // Draw elements and connections with the updated zoom factor
+        this.drawElements();
+        this.drawConnections();
+
+        // Reset the transformation on the canvas
+        this.ctx.setTransform(1, 0, 0, 1, 0, 0);
+
+    }
+
     $onInit() {
         this.canvas = document.getElementById('myCanvas');
         console.log(this.canvas)
         this.ctx = this.canvas.getContext('2d');
         console.log(this.canvas,this.ctx);
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.canvas.addEventListener('wheel', (e) => {
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            this.handleZoom(e);
 
-        this.canvas.addEventListener('mousedown', (e) => {
+        });
+
+
+    this.canvas.addEventListener('mousedown', (e) => {
             let rect = this.canvas.getBoundingClientRect();
             let mouseX = e.clientX - rect.left;
             let mouseY = e.clientY - rect.top;
@@ -47,7 +82,8 @@ class Graph {
             }
         });
 
-        this.canvas.addEventListener('mousemove', (e) => {
+    this.canvas.addEventListener('mousemove', (e) => {
+
             if (this.drag) {
                 let rect = this.canvas.getBoundingClientRect();
                 let mouseX = e.clientX - rect.left;
@@ -62,11 +98,11 @@ class Graph {
             }
         });
 
-        this.canvas.addEventListener('mouseup', () => {
-            this.drag = false;
-            this.selectedElement = null;
+    this.canvas.addEventListener('mouseup', () => {
+        this.drag = false;
+        this.selectedElement = null;
         });
-
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.drawElements();
         this.drawConnections();
     }
