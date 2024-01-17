@@ -1082,6 +1082,43 @@ export const ontology = [
         relation: "pvm:butin"
     },
 
+    // Pious -----------------------------------------------------------------------------
+    {
+        source: "Graine de Sésame",
+        target: "Ressources",
+        relation: "pvm:butin"
+    },
+    {
+        source: "Plume de Piou Bleu",
+        target: "Ressources",
+        relation: "pvm:butin"
+    },
+    {
+        source: "Plume de Piou Vert",
+        target: "Ressources",
+        relation: "pvm:butin"
+    },
+    {
+        source: "Plume de Piou Jaune",
+        target: "Ressources",
+        relation: "pvm:butin"
+    },
+    {
+        source: "Plume de Piou Rouge",
+        target: "Ressources",
+        relation: "pvm:butin"
+    },
+    {
+        source: "Plume de Piou Violet",
+        target: "Ressources",
+        relation: "pvm:butin"
+    },
+    {
+        source: "Plume de Piou Rose",
+        target: "Ressources",
+        relation: "pvm:butin"
+    },
+
     // ===================================================================================
     // Loot des Monstres
     // ===================================================================================
@@ -1140,6 +1177,68 @@ export const ontology = [
     {
         source: "Laine de Bouftou",
         target: "Bouftou",
+        relation: "pvm:lootby"
+    },
+
+    // Pious -----------------------------------------------------------------------------
+    {
+        source: "Graine de Sésame",
+        target: "Piou Bleu",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Graine de Sésame",
+        target: "Piou Vert",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Graine de Sésame",
+        target: "Piou Jaune",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Graine de Sésame",
+        target: "Piou Rouge",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Graine de Sésame",
+        target: "Piou Rose",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Graine de Sésame",
+        target: "Piou Violet",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Plume de Piou Bleu",
+        target: "Piou Bleu",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Plume de Piou Vert",
+        target: "Piou Vert",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Plume de Piou Jaune",
+        target: "Piou Jaune",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Plume de Piou Rouge",
+        target: "Piou Rouge",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Plume de Piou Violet",
+        target: "Piou Violet",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Plume de Piou Rose",
+        target: "Piou Rose",
         relation: "pvm:lootby"
     },
 
