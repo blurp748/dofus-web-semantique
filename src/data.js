@@ -100,6 +100,38 @@ export default ontology = [
         relation: "pvm:race"
     },
 
+    // Pichons ---------------------------------------------------------------------------
+    {
+        source: "Pichon Blanc",
+        target: "Pichons",
+        relation: "pvm:race"
+    },
+    {
+        source: "Pichon Bleu",
+        target: "Pichons",
+        relation: "pvm:race"
+    },
+    {
+        source: "Pichon Kloune",
+        target: "Pichons",
+        relation: "pvm:race"
+    },
+    {
+        source: "Pichon Orange",
+        target: "Pichons",
+        relation: "pvm:race"
+    },
+    {
+        source: "Pichon Vert",
+        target: "Pichons",
+        relation: "pvm:race"
+    },
+    {
+        source: "Mob l'Éponge",
+        target: "Pichons",
+        relation: "pvm:race"
+    },
+
     // ===================================================================================
     // Types
     // ===================================================================================
@@ -196,6 +228,38 @@ export default ontology = [
         relation: "pvm:types"
     },
 
+    // Pichons ---------------------------------------------------------------------------
+    {
+        source: "Pichon Blanc",
+        target: "Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Pichon Bleu",
+        target: "Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Pichon Kloune",
+        target: "Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Pichon Orange",
+        target: "Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Pichon Vert",
+        target: "Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Mob l'Éponge",
+        target: "Gardien de donjon",
+        relation: "pvm:types"
+    },
+
     // ===================================================================================
     // Zones
     // ===================================================================================
@@ -216,6 +280,11 @@ export default ontology = [
     },
     {
         source: "Astrub",
+        target: "Zone",
+        relation: "pvm:est"
+    },
+    {
+        source: "Calanques d'Astrub",
         target: "Zone",
         relation: "pvm:est"
     },
@@ -356,6 +425,33 @@ export default ontology = [
         target: "Village d'Amakna",
         relation: "pvm:zone"
     },
+
+    // Pichons ---------------------------------------------------------------------------
+    {
+        source: "Pichon Blanc",
+        target: "Calanques d'Astrub",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Pichon Bleu",
+        target: "Calanques d'Astrub",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Pichon Kloune",
+        target: "Calanques d'Astrub",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Pichon Orange",
+        target: "Calanques d'Astrub",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Pichon Vert",
+        target: "Calanques d'Astrub",
+        relation: "pvm:zone"
+    },
     
     // ===================================================================================
     // Donjons
@@ -376,7 +472,7 @@ export default ontology = [
         target: "Donjon",
         relation: "pvm:est"
     },
-    
+
     // ===================================================================================
     // Donjons des Monstres
     // ===================================================================================
@@ -420,6 +516,38 @@ export default ontology = [
     {
         source: "Bouftou d'Halouine",
         target: "Donjon Bouftous",
+        relation: "pvm:donjon"
+    },
+    
+    // Pichons ---------------------------------------------------------------------------
+    {
+        source: "Pichon Blanc",
+        target: "Donjon Ensablé",
+        relation: "pvm:donjon"
+    },
+    {
+        source: "Pichon Bleu",
+        target: "Donjon Ensablé",
+        relation: "pvm:donjon"
+    },
+    {
+        source: "Pichon Kloune",
+        target: "Donjon Ensablé",
+        relation: "pvm:donjon"
+    },
+    {
+        source: "Pichon Orange",
+        target: "Donjon Ensablé",
+        relation: "pvm:donjon"
+    },
+    {
+        source: "Pichon Vert",
+        target: "Donjon Ensablé",
+        relation: "pvm:donjon"
+    },
+    {
+        source: "Mob l'Éponge",
+        target: "Donjon Ensablé",
         relation: "pvm:donjon"
     },
 ];
