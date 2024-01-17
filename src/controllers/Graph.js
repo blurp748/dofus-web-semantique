@@ -58,9 +58,7 @@ class Graph {
         this.canvas.addEventListener('wheel', (e) => {
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
             //update this.elements x and y using this.zoomFactor
-
             this.handleZoom(e);
-
         });
         this.canvas.addEventListener('mousedown', (e) => {
             let rect = this.canvas.getBoundingClientRect();
