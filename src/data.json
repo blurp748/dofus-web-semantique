@@ -1,0 +1,101 @@
+{
+    "concept": [
+        "Races",
+        "Zone",
+        "Type",
+        "Donjon",
+        "MetaMonstre",
+        "Monstre",
+        "Archi-Monstre",
+        "Gardien-de-donjon"
+    ],
+    "monstre": [
+        
+    ]
+}
+
+{
+    "ontology": {
+        "name": "Monstres Dofus",
+        "subs": [
+            {
+                "name": "Races",
+                "subs": [
+                    {
+                        "name": "Bouftous",
+                        "monstres": [
+                            "Bouftou"
+                        ]
+                    },
+                    {
+                        "name": "Pious",
+                        "monstres" : [
+                            "Piou Rouge"
+                        ]
+                    }
+                ],
+                "monstres": []
+            },
+            {
+                "name": "Types",
+                "subs": [
+                    {
+                        "name": "Archi-Monstre",
+                        "monstres": [
+
+                        ]
+                    },
+                    {
+                        "name": "Monstre",
+                        "monstres": [
+                            "Piou Rouge",
+                            "Bouftou"
+                        ]
+                    },
+                    {
+                        "name": "Gardien de donjon",
+                        "level": 2,
+                        "monstres": [
+                            
+                        ]
+                    }
+                ],
+                "monstres": []
+            },
+            {
+                "name": "Zones",
+                "subs": [
+                    {
+                        "name": "Tainéla",
+                        "monstres": [
+                            "Bouftou"
+                        ]
+                    },
+                    {
+                        "name": "Astrub",
+                        "monstres": [
+                            "Piou Rouge"
+                        ]
+                    }
+                ],
+                "monstres": []
+            },
+            {
+                "name": "Donjons",
+                "subs": [
+                    {
+                        "name": "Donjon des bouftous",
+                        "monstres": [
+                            "Bouftou"
+                        ],
+                        "zone": "Tainéla",
+                        "gardien de donjon" : "Bouftou Royal" 
+                    }
+                ],
+                "monstres": []
+            }
+
+        ],
+        "monstres": []
+    }
+}
