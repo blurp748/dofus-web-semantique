@@ -1119,6 +1119,35 @@ export const ontology = [
         relation: "pvm:butin"
     },
 
+    // Pichons ---------------------------------------------------------------------------
+    {
+        source: "Serviette de Plage",
+        target: "Ressources",
+        relation: "pvm:butin"
+    },
+    {
+        source: "Écaille poisseuse",
+        target: "Ressources",
+        relation: "pvm:butin"
+    },
+    {
+        source: "Peau de Mob l'Éponge",
+        target: "Ressources",
+        relation: "pvm:butin"
+    },
+
+    // Tofus -----------------------------------------------------------------------------
+    {
+        source: "Plume de Batofu",
+        target: "Ressources",
+        relation: "pvm:butin"
+    },
+    {
+        source: "Œuf de Tofu",
+        target: "Ressources",
+        relation: "pvm:butin"
+    },
+
     // ===================================================================================
     // Loot des Monstres
     // ===================================================================================
@@ -1239,6 +1268,100 @@ export const ontology = [
     {
         source: "Plume de Piou Rose",
         target: "Piou Rose",
+        relation: "pvm:lootby"
+    },
+
+    // Pichons ---------------------------------------------------------------------------
+    {
+        source: "Serviette de Plage",
+        target: "Pichon Blanc",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Serviette de Plage",
+        target: "Pichon Bleu",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Serviette de Plage",
+        target: "Pichon Kloune",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Serviette de Plage",
+        target: "Pichon Orange",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Serviette de Plage",
+        target: "Pichon Vert",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Écaille poisseuse",
+        target: "Pichon Blanc",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Écaille poisseuse",
+        target: "Pichon Bleu",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Écaille poisseuse",
+        target: "Pichon Kloune",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Écaille poisseuse",
+        target: "Pichon Orange",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Écaille poisseuse",
+        target: "Pichon Vert",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Peau de Mob l'Éponge",
+        target: "Mob l'Éponge",
+        relation: "pvm:lootby"
+    },
+
+    // Tofus -----------------------------------------------------------------------------
+    {
+        source: "Plume de Batofu",
+        target: "Batofu",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Œuf de Tofu",
+        target: "Tofoune",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Œuf de Tofu",
+        target: "Tofu",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Œuf de Tofu",
+        target: "Tofukaz",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Œuf de Tofu",
+        target: "Tofu Mutant",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Œuf de Tofu",
+        target: "Tofu Noir",
+        relation: "pvm:lootby"
+    },
+    {
+        source: "Œuf de Tofu",
+        target: "Tofu Ventripotent",
         relation: "pvm:lootby"
     },
 
