@@ -2,7 +2,7 @@ class Graph {
     constructor(elements, connections, canvas) {
         this.canvas = canvas;
         this.zoomFactor = 1.0;
-        this.zoomIncrement = 0.1;
+        this.zoomIncrement = 0.275;
 
         this.elements = elements;
         Object.keys(elements).forEach((k,e)=>{
@@ -24,7 +24,6 @@ class Graph {
         this.offsetY = 0;
     }
 
-
     handleZoom(e) {
         e.preventDefault();
         let zoomDirection = e.deltaY > 0 ? -1 : 1; // Check scroll direction
@@ -32,6 +31,7 @@ class Graph {
         let rect = this.canvas.getBoundingClientRect();
         let mouseX = e.clientX - rect.left;
         let mouseY = e.clientY - rect.top;
+
         // Adjust the zoom factor within a specified range (e.g., 0.1 to 3.0)
         this.zoomFactor = Math.min(Math.max(this.zoomFactor + this.zoomIncrement * zoomDirection, 0.1), 3.0);
         let newMouseX = mouseX * this.zoomFactor;
@@ -57,7 +57,10 @@ class Graph {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.canvas.addEventListener('wheel', (e) => {
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            //update this.elements x and y using this.zoomFactor
+
             this.handleZoom(e);
+
         });
         this.canvas.addEventListener('mousedown', (e) => {
             let rect = this.canvas.getBoundingClientRect();
@@ -169,7 +172,7 @@ class Graph {
 
         let startOffsetX = Math.cos(angle) * 20;
         let startOffsetY = Math.sin(angle) * 20;
-        let endOffsetX = Math.cos(angle) * 20
+        let endOffsetX = Math.cos(angle) * 20;
         let endOffsetY = Math.sin(angle) * 20;
 
         this.ctx.beginPath();
