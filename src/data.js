@@ -26,6 +26,93 @@ export const ontology = [
     // Races des Monstres
     // ===================================================================================
 
+    // Archi-Monstres ---------------------------------------------------------------------
+    {
+        source: "Boudalf le Blanc",
+        target: "Bouftous",
+        relation: "pvm:race"
+    },
+    {
+        source: "Boufdégou le Refoulant",
+        target: "Bouftous",
+        relation: "pvm:race"
+    },
+    {
+        source: "Bouflet le Puéril",
+        target: "Bouftous",
+        relation: "pvm:race"
+    },
+    {
+        source: "Boulgourvil le Lointain",
+        target: "Bouftous",
+        relation: "pvm:race"
+    },
+    {
+        source: "Pichakoté le Dégoutant",
+        target: "Pichons",
+        relation: "pvm:race"
+    },
+    {
+        source: "Pichdourse le Puissant",
+        target: "Pichons",
+        relation: "pvm:race"
+    },
+    {
+        source: "Pichduitre le Totem",
+        target: "Pichons",
+        relation: "pvm:race"
+    },
+    {
+        source: "Pichtoire l'Erudit",
+        target: "Pichons",
+        relation: "pvm:race"
+    },
+    {
+        source: "Pioufe la Maquillée",
+        target: "Pious",
+        relation: "pvm:race"
+    },
+    {
+        source: "Pioukas la Plante",
+        target: "Pious",
+        relation: "pvm:race"
+    },
+    {
+        source: "Pioubrineur le Mercenaire",
+        target: "Pious",
+        relation: "pvm:race"
+    },
+    {
+        source: "Pioulette la Coquine",
+        target: "Pious",
+        relation: "pvm:race"
+    },
+    {
+        source: "Pioussokrim le Délétère",
+        target: "Pious",
+        relation: "pvm:race"
+    },
+    {
+        source: "Pioustone le Problème",
+        target: "Pious",
+        relation: "pvm:race"
+    },
+    {
+        source: "Tofuldebeu l'Explosif",
+        target: "Tofus",
+        relation: "pvm:race"
+    },
+    {
+        source: "Tofulmanchou l'Empereur",
+        target: "Tofus",
+        relation: "pvm:race"
+    },
+    {
+        source: "Tofurapin le Pétri",
+        target: "Tofus",
+        relation: "pvm:race"
+    },
+
     // Bouftous --------------------------------------------------------------------------
     {
         source: "Ballotin le bouftou",
@@ -132,6 +219,49 @@ export const ontology = [
         relation: "pvm:race"
     },
 
+    // Tofus -----------------------------------------------------------------------------
+    {
+        source: "Batofu",
+        target: "Tofus",
+        relation: "pvm:race"
+    },
+    {
+        source: "Tofoune",
+        target: "Tofus",
+        relation: "pvm:race"
+    },
+    {
+        source: "Tofu",
+        target: "Tofus",
+        relation: "pvm:race"
+    },
+    {
+        source: "Tofu d'Halouine",
+        target: "Tofus",
+        relation: "pvm:race"
+    },
+    {
+        source: "Tofukaz",
+        target: "Tofus",
+        relation: "pvm:race"
+    },
+    {
+        source: "Tofu Mutant",
+        target: "Tofus",
+        relation: "pvm:race"
+    },
+    {
+        source: "Tofu Noir",
+        target: "Tofus",
+        relation: "pvm:race"
+    },
+    {
+        source: "Tofu Ventripotent",
+        target: "Tofus",
+        relation: "pvm:race"
+    },
+
+
     // ===================================================================================
     // Types
     // ===================================================================================
@@ -153,6 +283,93 @@ export const ontology = [
     // ===================================================================================
     // Types des Monstres
     // ===================================================================================
+
+    // Archi-Monstres ---------------------------------------------------------------------
+    {
+        source: "Boudalf le Blanc",
+        target: "Archi-Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Boufdégou le Refoulant",
+        target: "Archi-Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Bouflet le Puéril",
+        target: "Archi-Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Boulgourvil le Lointain",
+        target: "Archi-Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Pichakoté le Dégoutant",
+        target: "Archi-Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Pichdourse le Puissant",
+        target: "Archi-Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Pichduitre le Totem",
+        target: "Archi-Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Pichtoire l'Erudit",
+        target: "Archi-Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Pioufe la Maquillée",
+        target: "Archi-Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Pioukas la Plante",
+        target: "Archi-Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Pioubrineur le Mercenaire",
+        target: "Archi-Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Pioulette la Coquine",
+        target: "Archi-Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Pioussokrim le Délétère",
+        target: "Archi-Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Pioustone le Problème",
+        target: "Archi-Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Tofuldebeu l'Explosif",
+        target: "Archi-Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Tofulmanchou l'Empereur",
+        target: "Archi-Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Tofurapin le Pétri",
+        target: "Archi-Monstre",
+        relation: "pvm:types"
+    },
 
     // Bouftous --------------------------------------------------------------------------
     {
@@ -257,6 +474,48 @@ export const ontology = [
     {
         source: "Mob l'Éponge",
         target: "Gardien de donjon",
+        relation: "pvm:types"
+    },
+
+    // Tofus -----------------------------------------------------------------------------
+    {
+        source: "Batofu",
+        target: "Gardien de donjon",
+        relation: "pvm:types"
+    },
+    {
+        source: "Tofoune",
+        target: "Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Tofu",
+        target: "Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Tofu d'Halouine",
+        target: "Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Tofukaz",
+        target: "Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Tofu Mutant",
+        target: "Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Tofu Noir",
+        target: "Monstre",
+        relation: "pvm:types"
+    },
+    {
+        source: "Tofu Ventripotent",
+        target: "Monstre",
         relation: "pvm:types"
     },
 
@@ -288,9 +547,151 @@ export const ontology = [
         target: "Zone",
         relation: "pvm:est"
     },
+    {
+        source: "Champ des Ingalsse",
+        target: "Zone",
+        relation: "pvm:est"
+    },
     // ===================================================================================
     // Zones des Monstres
     // ===================================================================================
+
+    // Archi-Monstres ---------------------------------------------------------------------
+    {
+        source: "Boudalf le Blanc",
+        target: "Tainéla",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Boufdégou le Refoulant",
+        target: "Tainéla",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Bouflet le Puéril",
+        target: "Tainéla",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Boulgourvil le Lointain",
+        target: "Tainéla",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Boudalf le Blanc",
+        target: "Coin des Bouftous",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Boufdégou le Refoulant",
+        target: "Coin des Bouftous",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Bouflet le Puéril",
+        target: "Coin des Bouftous",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Boulgourvil le Lointain",
+        target: "Coin des Bouftous",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Pichakoté le Dégoutant",
+        target: "Calanques d'Astrub",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Pichdourse le Puissant",
+        target: "Calanques d'Astrub",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Pichduitre le Totem",
+        target: "Calanques d'Astrub",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Pichtoire l'Erudit",
+        target: "Calanques d'Astrub",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Pioufe la Maquillée",
+        target: "Astrub",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Pioukas la Plante",
+        target: "Astrub",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Pioubrineur le Mercenaire",
+        target: "Astrub",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Pioulette la Coquine",
+        target: "Astrub",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Pioussokrim le Délétère",
+        target: "Astrub",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Pioustone le Problème",
+        target: "Astrub",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Pioufe la Maquillée",
+        target: "Village d'Amakna",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Pioukas la Plante",
+        target: "Village d'Amakna",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Pioubrineur le Mercenaire",
+        target: "Village d'Amakna",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Pioulette la Coquine",
+        target: "Village d'Amakna",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Pioussokrim le Délétère",
+        target: "Village d'Amakna",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Pioustone le Problème",
+        target: "Village d'Amakna",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Tofuldebeu l'Explosif",
+        target: "Champ des Ingalsse",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Tofulmanchou l'Empereur",
+        target: "Champ des Ingalsse",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Tofurapin le Pétri",
+        target: "Champ des Ingalsse",
+        relation: "pvm:zone"
+    },
 
     // Bouftous --------------------------------------------------------------------------
     {
@@ -452,6 +853,43 @@ export const ontology = [
         target: "Calanques d'Astrub",
         relation: "pvm:zone"
     },
+
+    // Tofus -----------------------------------------------------------------------------
+    {
+        source: "Tofoune",
+        target: "Champ des Ingalsse",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Tofu",
+        target: "Champ des Ingalsse",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Tofu d'Halouine",
+        target: "Champ des Ingalsse",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Tofukaz",
+        target: "Champ des Ingalsse",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Tofu Mutant",
+        target: "Champ des Ingalsse",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Tofu Noir",
+        target: "Champ des Ingalsse",
+        relation: "pvm:zone"
+    },
+    {
+        source: "Tofu Ventripotent",
+        target: "Champ des Ingalsse",
+        relation: "pvm:zone"
+    },
     
     // ===================================================================================
     // Donjons
@@ -468,7 +906,7 @@ export const ontology = [
         relation: "pvm:est"
     },
     {
-        source: "Donjon Tofus",
+        source: "Donjon des Tofus",
         target: "Donjon",
         relation: "pvm:est"
     },
@@ -478,11 +916,6 @@ export const ontology = [
     // ===================================================================================
 
     // Bouftous --------------------------------------------------------------------------
-    {
-        source: "Ballotin le bouftou",
-        target: "Donjon Bouftous",
-        relation: "pvm:donjon"
-    },
     {
         source: "Bouftou",
         target: "Donjon Bouftous",
@@ -510,11 +943,6 @@ export const ontology = [
     },
     {
         source: "Chef de Guerre Bouftou",
-        target: "Donjon Bouftous",
-        relation: "pvm:donjon"
-    },
-    {
-        source: "Bouftou d'Halouine",
         target: "Donjon Bouftous",
         relation: "pvm:donjon"
     },
@@ -549,5 +977,42 @@ export const ontology = [
         source: "Mob l'Éponge",
         target: "Donjon Ensablé",
         relation: "pvm:donjon"
+    },
+
+    // Tofus -----------------------------------------------------------------------------
+    {
+        source: "Batofu",
+        target: "Donjon des Tofus",
+        relation: "pvm:donjon"
+    },
+    {
+        source: "Tofoune",
+        target: "Donjon des Tofus",
+        relation: "pvm:donjon"
+    },
+    {
+        source: "Tofu",
+        target: "Donjon des Tofus",
+        relation: "pvm:donjon"
+    },
+    {
+        source: "Tofukaz",
+        target: "Donjon des Tofus",
+        relation: "pvm:donjon"
+    },
+    {
+        source: "Tofu Mutant",
+        target: "Donjon des Tofus",
+        relation: "pvm:donjon"
+    },
+    {
+        source: "Tofu Noir",
+        target: "Donjon des Tofus",
+        relation: "pvm:donjon"
+    },
+    {
+        source: "Tofu Ventripotent",
+        target: "Donjon des Tofus",
+        relation: "pvm:types"
     },
 ];
