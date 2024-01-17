@@ -61,11 +61,8 @@ class Graph {
         this.canvas.addEventListener('wheel', (e) => {
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
             this.handleZoom(e);
-
         });
-
-
-    this.canvas.addEventListener('mousedown', (e) => {
+        this.canvas.addEventListener('mousedown', (e) => {
             let rect = this.canvas.getBoundingClientRect();
             let mouseX = e.clientX - rect.left;
             let mouseY = e.clientY - rect.top;
@@ -82,7 +79,7 @@ class Graph {
             }
         });
 
-    this.canvas.addEventListener('mousemove', (e) => {
+        this.canvas.addEventListener('mousemove', (e) => {
 
             if (this.drag) {
                 let rect = this.canvas.getBoundingClientRect();
@@ -98,7 +95,7 @@ class Graph {
             }
         });
 
-    this.canvas.addEventListener('mouseup', () => {
+        this.canvas.addEventListener('mouseup', () => {
         this.drag = false;
         this.selectedElement = null;
         });
