@@ -111,7 +111,8 @@ class Graph {
                             this.elements[connectedElement].x,
                             this.elements[connectedElement].y,
                             offset,
-                            connection.direction
+                            connection.direction,
+                            connection.relation
                         );
                     }
                 }
@@ -137,8 +138,8 @@ class Graph {
         this.ctx.stroke();
     }
 
-    drawArrowWithOffset(fromX, fromY, toX, toY, offset, direction) {
-        if(direction === 'TO'){
+    drawArrowWithOffset(fromX, fromY, toX, toY, offset, direction, relation) {
+        if (direction === 'TO') {
             let temp = fromX;
             fromX = toX;
             toX = temp;
@@ -168,6 +169,14 @@ class Graph {
         this.ctx.lineTo(toX - headLength * Math.cos(angle + Math.PI / 6) - endOffsetX, toY - headLength * Math.sin(angle + Math.PI / 6) - endOffsetY - offset);
         this.ctx.fillStyle = 'black';
         this.ctx.fill();
+
+        this.ctx.save();
+        this.ctx.translate((fromX + toX) / 2, (fromY + toY) / 2);
+        this.ctx.rotate(angle);
+        this.ctx.fillStyle = 'black';
+        this.ctx.font = '12px Arial';
+        this.ctx.fillText(relation, 0, 0);
+        this.ctx.restore();
     }
 
     addElement() {
@@ -177,6 +186,7 @@ class Graph {
     addConnection() {
 
     }
+
 
 }
 
