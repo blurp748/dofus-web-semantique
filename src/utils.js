@@ -4,8 +4,8 @@ export function getComputedOntology() {
     let relations = {} 
 
     for(const concept of ontology) {
-        const source_key = concept.source.toLowerCase().replace(" ", "_");
-        const target_key = concept.target.toLowerCase().replace(" ", "_");
+        const source_key = concept.source.toLowerCase().replaceAll(" ", "_");
+        const target_key = concept.target.toLowerCase().replaceAll(" ", "_");
 
         if (!elements[source_key]) {
             elements[source_key] = {name: concept.source}
@@ -31,17 +31,19 @@ export function depthFirstSearch(start, ontology, maxDepth = 3,  visited = {}, d
     visited[start] = true; // Mark node as visited
 
     let subgraph = { elements: { [start]: ontology.elements[start] }, relations: { [start]: [] } };
-
-    for (let edge of ontology.relations[start]) { // For each relation of the node
-        if (!visited[edge.target]) { // If the target node has not been visited
-            let deeperSubgraph = depthFirstSearch(edge.target, ontology, maxDepth, visited, depth + 1); // Recurse on the target
-            subgraph.elements = { ...subgraph.elements, ...deeperSubgraph.elements };
-            subgraph.relations = { ...subgraph.relations, ...deeperSubgraph.relations };
-            subgraph.relations[start].push(edge);
-            subgraph.relations[edge.target] = subgraph.relations[edge.target] || [];
-            subgraph.relations[edge.target].push({ target: start, relation: edge.relation, direction: edge.direction === 'FROM' ? 'TO' : 'FROM' });
+    if(depth + 1 <= maxDepth) {
+        for (let edge of ontology.relations[start]) { // For each relation of the node
+            if (!visited[edge.target]) { // If the target node has not been visited
+                let deeperSubgraph = depthFirstSearch(edge.target, ontology, maxDepth, visited, depth + 1); // Recurse on the target
+                subgraph.elements = { ...subgraph.elements, ...deeperSubgraph.elements };
+                subgraph.relations = { ...subgraph.relations, ...deeperSubgraph.relations };
+                subgraph.relations[start].push(edge);
+                subgraph.relations[edge.target] = subgraph.relations[edge.target] || [];
+                subgraph.relations[edge.target].push({ target: start, relation: edge.relation, direction: edge.direction === 'FROM' ? 'TO' : 'FROM' });
+                
+            }
         }
     }
-
+        
     return subgraph;
 }
