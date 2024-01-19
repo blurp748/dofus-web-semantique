@@ -170,6 +170,17 @@ class Graph {
         this.ctx.fillText(relation, 0, 0);
         this.ctx.restore();
     }
+
+    destroy() {
+        if(this.canvas) {
+            this.canvas.removeEventListener('mousemove', this);
+            this.canvas.removeEventListener('mousedown', this);
+            this.canvas.removeEventListener('mouseup', this);
+            delete this.elements;
+            delete this.connections;
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        }
+    }
 }
 
 export default Graph;

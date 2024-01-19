@@ -9,7 +9,7 @@ defineProps({
 
 let depthRange = ref(1)
 let searchText = ref("bouftou")
-
+let g = new Graph();
 
 const t = ref(null);
 onMounted(() => {
@@ -20,11 +20,12 @@ onMounted(() => {
   canvas.height = height;
   
   watchEffect(() => {
+    g.destroy()
     const ontology = getComputedOntology()
     const selectedNode = searchText.value.toLowerCase().replaceAll(" ", "_")
     if(ontology.elements[selectedNode]) {
       const {elements, relations} = depthFirstSearch(selectedNode, getComputedOntology(), depthRange.value)
-      const g = new Graph(elements, relations, canvas, selectedNode);
+      g = new Graph(elements, relations, canvas, selectedNode);
       g.$onInit()
     }
   })
