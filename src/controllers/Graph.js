@@ -6,96 +6,37 @@ class Graph {
         this.selectedNode = selectedNode;
 
         this.elements = elements;
-        Object.keys(elements).forEach((k,e)=>{
-            elements[k] = {
-                x: Object.keys(elements).length * (Math.random() * 1080) % window.innerWidth,
-                y: Object.keys(elements).length * (Math.random() * 1920) % window.innerHeight,
-                name: elements[k].name,
-            }
-        });
         this.connections = connections;
+
         this.drag = false;
         this.selectedElement = null;
+
         this.drawnConnections = {};
+
         this.offsetIncrement = 10;
         this.offsetX = 0;
         this.offsetY = 0;
-    }
 
-    handleZoom(e) {
-        e.preventDefault();
-        let zoomDirection = e.deltaY > 0 ? -1 : 1; // Check scroll direction
-
-        let rect = this.canvas.getBoundingClientRect();
-        let mouseX = e.clientX - rect.left;
-        let mouseY = e.clientY - rect.top;
-
-        // Adjust the zoom factor within a specified range (e.g., 0.1 to 3.0)
-        this.zoomFactor = Math.min(Math.max(this.zoomFactor + this.zoomIncrement * zoomDirection, 0.1), 3.0);
-        let newMouseX = mouseX * this.zoomFactor;
-        let newMouseY = mouseY * this.zoomFactor;
-        this.ctx.translate(mouseX - newMouseX, mouseY - newMouseY);
-        // Adjust the canvas transformation based on the new zoom factor
-        this.ctx.scale(this.zoomFactor, this.zoomFactor);
-
-        // Draw elements and connections with the updated zoom factor
-        this.drawElements();
-        this.drawConnections();
-
-        // Reset the transformation on the canvas
-        this.ctx.setTransform(1, 0, 0, 1, 0, 0);
-
+        this.nodeRadius = 20;
     }
 
     $onInit() {
-
-        let proc = setTimeout(() => this.handleZoom(), 200);
         this.canvas = document.getElementById('myCanvas');
         this.ctx = this.canvas.getContext('2d');
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        this.canvas.addEventListener('wheel', (e) => {
-            clearTimeout(proc);
-            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-            console.log(this.zoomFactor, this.canvas.width, this.canvas.height);
-            Object.keys(this.elements).forEach(element => {
-                    if (this.zoomFactor > 1.0) {
-                        this.elements[element].x = (this.elements[element].x - this.canvas.width / 2) * this.zoomFactor + this.canvas.width / 2;
-                        this.elements[element].y = (this.elements[element].y - this.canvas.height / 2) * this.zoomFactor + this.canvas.height / 2;
-                        console.log(this.elements[element].x, this.elements[element].y)
-                    } else {
-                        this.elements[element].x = (this.elements[element].x - this.canvas.width / 2) / this.zoomFactor + this.canvas.width / 2;
-                        this.elements[element].y = (this.elements[element].y - this.canvas.height / 2) / this.zoomFactor + this.canvas.height / 2;
-                    }
-            });
-            this.handleZoom(e);
+        
+        Object.keys(this.elements).forEach((k,e)=>{
+            const randomWidth = Object.keys(this.elements).length * (Math.random() * this.canvas.width) % this.canvas.width;
+            const randomHeight = Object.keys(this.elements).length * (Math.random() * this.canvas.height) % this.canvas.height;
 
-        });
-        this.canvas.addEventListener('mousedown', (e) => {
-            let rect = this.canvas.getBoundingClientRect();
-            let mouseX = e.clientX - rect.left;
-            let mouseY = e.clientY - rect.top;
-            console.log('mx',mouseX,'my',mouseY)
-            // Find the element that was clicked and consle.log it
-            Object.keys(this.elements).forEach(element => {
-                if (Math.sqrt(Math.pow(mouseX - this.elements[element].x, 2) + Math.pow(mouseY - this.elements[element].y, 2)) < 20) {
-                    console.log(this.elements[element]);
-                }
-            });
-
-            for (let element in this.elements) {
-                var dist = Math.sqrt(Math.pow(mouseX - this.elements[element].x, 2) + Math.pow(mouseY - this.elements[element].y, 2));
-                if (dist < 20) {
-                    this.drag = true;
-                    this.selectedElement = element;
-                    this.offsetX = mouseX - this.elements[element].x;
-                    this.offsetY = mouseY - this.elements[element].y;
-                    break;
-                }
+            this.elements[k] = {
+                x: Object.keys(this.elements).length * (Math.random() * this.canvas.width) % this.canvas.width,
+                y: Object.keys(this.elements).length * (Math.random() * this.canvas.height) % this.canvas.height,
+                name: this.elements[k].name,
             }
         });
-
+        
         this.canvas.addEventListener('mousemove', (e) => {
-
             if (this.drag) {
                 let rect = this.canvas.getBoundingClientRect();
                 let mouseX = e.clientX - rect.left;
@@ -105,27 +46,43 @@ class Graph {
                 this.elements[this.selectedElement].y = mouseY - this.offsetY;
 
                 this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                
                 this.drawElements();
                 this.drawConnections();
             }
         });
 
-        this.canvas.addEventListener('mouseup', () => {
-        this.drag = false;
-        this.selectedElement = null;
+        this.canvas.addEventListener('mousedown', (e) => {
+            let rect = this.canvas.getBoundingClientRect();
+            let mouseX = e.clientX - rect.left;
+            let mouseY = e.clientY - rect.top;
+
+            for (let element in this.elements) {
+                var dist = Math.sqrt(Math.pow(mouseX - this.elements[element].x, 2) + Math.pow(mouseY - this.elements[element].y, 2));
+                if (dist < this.nodeRadius) {
+                    this.drag = true;
+                    this.selectedElement = element;
+                    this.offsetX = mouseX - this.elements[element].x;
+                    this.offsetY = mouseY - this.elements[element].y;
+                    break;
+                }
+            }
+
         });
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+        this.canvas.addEventListener('mouseup', () => {
+            this.drag = false;
+            this.selectedElement = null;
+        });
+
         this.drawElements();
         this.drawConnections();
     }
 
-    /**
-     *
-     */
     drawElements() {
         for (let element in this.elements) {
             this.ctx.beginPath();
-            this.ctx.arc(this.elements[element].x, this.elements[element].y, 20, 0, Math.PI * 2);
+            this.ctx.arc(this.elements[element].x, this.elements[element].y, this.nodeRadius, 0, Math.PI * 2);
             this.ctx.fillStyle = this.selectedNode === element ? 'red' : 'lightblue'; 
             
             this.ctx.fill();
@@ -186,10 +143,10 @@ class Graph {
         let headLength = 10;
         let angle = Math.atan2(toY - fromY, toX - fromX);
 
-        let startOffsetX = Math.cos(angle) * 20;
-        let startOffsetY = Math.sin(angle) * 20;
-        let endOffsetX = Math.cos(angle) * 20;
-        let endOffsetY = Math.sin(angle) * 20;
+        let startOffsetX = Math.cos(angle) * this.nodeRadius;
+        let startOffsetY = Math.sin(angle) * this.nodeRadius;
+        let endOffsetX = Math.cos(angle) * this.nodeRadius;
+        let endOffsetY = Math.sin(angle) * this.nodeRadius;
 
         this.ctx.beginPath();
         this.ctx.moveTo(fromX + startOffsetX, fromY + startOffsetY - offset);
@@ -213,16 +170,6 @@ class Graph {
         this.ctx.fillText(relation, 0, 0);
         this.ctx.restore();
     }
-
-    addElement() {
-
-    }
-
-    addConnection() {
-
-    }
-
-
 }
 
 export default Graph;
