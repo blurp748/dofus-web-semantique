@@ -1,6 +1,9 @@
 class Graph {
     constructor(elements, connections, canvas) {
         this.canvas = canvas;
+        this.zoomFactor = 1.0;
+        this.zoomIncrement = 0.275;
+
         this.elements = elements;
         Object.keys(elements).forEach((k,e)=>{
             console.log(k,e,elements[k])
@@ -21,15 +24,42 @@ class Graph {
         this.offsetY = 0;
     }
 
-    /**
-     * 
-     */
+    handleZoom(e) {
+        e.preventDefault();
+        let zoomDirection = e.deltaY > 0 ? -1 : 1; // Check scroll direction
+
+        let rect = this.canvas.getBoundingClientRect();
+        let mouseX = e.clientX - rect.left;
+        let mouseY = e.clientY - rect.top;
+
+        // Adjust the zoom factor within a specified range (e.g., 0.1 to 3.0)
+        this.zoomFactor = Math.min(Math.max(this.zoomFactor + this.zoomIncrement * zoomDirection, 0.1), 3.0);
+        let newMouseX = mouseX * this.zoomFactor;
+        let newMouseY = mouseY * this.zoomFactor;
+        this.ctx.translate(mouseX - newMouseX, mouseY - newMouseY);
+        // Adjust the canvas transformation based on the new zoom factor
+        this.ctx.scale(this.zoomFactor, this.zoomFactor);
+
+        // Draw elements and connections with the updated zoom factor
+        this.drawElements();
+        this.drawConnections();
+
+        // Reset the transformation on the canvas
+        this.ctx.setTransform(1, 0, 0, 1, 0, 0);
+
+    }
+
     $onInit() {
         this.canvas = document.getElementById('myCanvas');
         console.log(this.canvas)
         this.ctx = this.canvas.getContext('2d');
         console.log(this.canvas,this.ctx);
-
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.canvas.addEventListener('wheel', (e) => {
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            //update this.elements x and y using this.zoomFactor
+            this.handleZoom(e);
+        });
         this.canvas.addEventListener('mousedown', (e) => {
             let rect = this.canvas.getBoundingClientRect();
             let mouseX = e.clientX - rect.left;
@@ -48,6 +78,7 @@ class Graph {
         });
 
         this.canvas.addEventListener('mousemove', (e) => {
+
             if (this.drag) {
                 let rect = this.canvas.getBoundingClientRect();
                 let mouseX = e.clientX - rect.left;
@@ -63,10 +94,10 @@ class Graph {
         });
 
         this.canvas.addEventListener('mouseup', () => {
-            this.drag = false;
-            this.selectedElement = null;
+        this.drag = false;
+        this.selectedElement = null;
         });
-
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.drawElements();
         this.drawConnections();
     }
@@ -111,7 +142,8 @@ class Graph {
                             this.elements[connectedElement].x,
                             this.elements[connectedElement].y,
                             offset,
-                            connection.direction
+                            connection.direction,
+                            connection.relation
                         );
                     }
                 }
@@ -123,22 +155,8 @@ class Graph {
         return this.drawnConnections[`${connectionKey}-${offset}`];
     }
 
-    drawConnectionFE(from, to) {
-        let startX = from.x < to.x ? from.x + 20 : from.x - 20;
-        let startY = from.y;
-        let endX = to.x < from.x ? to.x + 20 : to.x - 20;
-        let endY = to.y;
-
-        this.ctx.beginPath();
-        this.ctx.moveTo(startX, startY);
-        this.ctx.lineTo(endX, endY);
-        this.ctx.strokeStyle = 'black';
-        this.ctx.lineWidth = 2;
-        this.ctx.stroke();
-    }
-
-    drawArrowWithOffset(fromX, fromY, toX, toY, offset, direction) {
-        if(direction === 'TO'){
+    drawArrowWithOffset(fromX, fromY, toX, toY, offset, direction, relation) {
+        if (direction === 'TO') {
             let temp = fromX;
             fromX = toX;
             toX = temp;
@@ -168,6 +186,14 @@ class Graph {
         this.ctx.lineTo(toX - headLength * Math.cos(angle + Math.PI / 6) - endOffsetX, toY - headLength * Math.sin(angle + Math.PI / 6) - endOffsetY - offset);
         this.ctx.fillStyle = 'black';
         this.ctx.fill();
+
+        this.ctx.save();
+        this.ctx.translate((fromX + toX) / 2, (fromY + toY) / 2);
+        this.ctx.rotate(angle);
+        this.ctx.fillStyle = 'black';
+        this.ctx.font = '12px Arial';
+        this.ctx.fillText(relation, 0, 0);
+        this.ctx.restore();
     }
 
     addElement() {
@@ -177,6 +203,7 @@ class Graph {
     addConnection() {
 
     }
+
 
 }
 
