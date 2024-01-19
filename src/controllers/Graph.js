@@ -6,7 +6,6 @@ class Graph {
 
         this.elements = elements;
         Object.keys(elements).forEach((k,e)=>{
-            console.log(k,e,elements[k])
             elements[k] = {
                 x: Object.keys(elements).length * (Math.random() * 1080) % window.innerWidth,
                 y: Object.keys(elements).length * (Math.random() * 1920) % window.innerHeight,
@@ -14,8 +13,6 @@ class Graph {
             }
         });
         this.connections = connections;
-        console.log('*************************')
-        console.log(this.elements, this.connections)
         this.drag = false;
         this.selectedElement = null;
         this.drawnConnections = {};
@@ -50,20 +47,39 @@ class Graph {
     }
 
     $onInit() {
+
+        let proc = setTimeout(() => this.handleZoom(), 200);
         this.canvas = document.getElementById('myCanvas');
-        console.log(this.canvas)
         this.ctx = this.canvas.getContext('2d');
-        console.log(this.canvas,this.ctx);
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.canvas.addEventListener('wheel', (e) => {
+            clearTimeout(proc);
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-            //update this.elements x and y using this.zoomFactor
+            console.log(this.zoomFactor, this.canvas.width, this.canvas.height);
+            Object.keys(this.elements).forEach(element => {
+                    if (this.zoomFactor > 1.0) {
+                        this.elements[element].x = (this.elements[element].x - this.canvas.width / 2) * this.zoomFactor + this.canvas.width / 2;
+                        this.elements[element].y = (this.elements[element].y - this.canvas.height / 2) * this.zoomFactor + this.canvas.height / 2;
+                        console.log(this.elements[element].x, this.elements[element].y)
+                    } else {
+                        this.elements[element].x = (this.elements[element].x - this.canvas.width / 2) / this.zoomFactor + this.canvas.width / 2;
+                        this.elements[element].y = (this.elements[element].y - this.canvas.height / 2) / this.zoomFactor + this.canvas.height / 2;
+                    }
+            });
             this.handleZoom(e);
+
         });
         this.canvas.addEventListener('mousedown', (e) => {
             let rect = this.canvas.getBoundingClientRect();
             let mouseX = e.clientX - rect.left;
             let mouseY = e.clientY - rect.top;
+            console.log('mx',mouseX,'my',mouseY)
+            // Find the element that was clicked and consle.log it
+            Object.keys(this.elements).forEach(element => {
+                if (Math.sqrt(Math.pow(mouseX - this.elements[element].x, 2) + Math.pow(mouseY - this.elements[element].y, 2)) < 20) {
+                    console.log(this.elements[element]);
+                }
+            });
 
             for (let element in this.elements) {
                 var dist = Math.sqrt(Math.pow(mouseX - this.elements[element].x, 2) + Math.pow(mouseY - this.elements[element].y, 2));

@@ -23,7 +23,6 @@ onMounted(() => {
     const ontology = getComputedOntology()
     if(ontology.elements[searchText.value.toLowerCase().replaceAll(" ", "_")]) {
       const {elements, relations} = depthFirstSearch(searchText.value.toLowerCase().replaceAll(" ", "_"), getComputedOntology(), depthRange.value)
-      console.log(elements, relations)
       const g = new Graph(elements, relations);
       g.$onInit()
     }
