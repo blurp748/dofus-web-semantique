@@ -1,11 +1,15 @@
 <script setup>
-import {onMounted, ref} from 'vue'
+import {computed, onMounted, ref, reactive, watchEffect} from 'vue'
 import Graph from "../controllers/Graph.js";
-import {getComputedOntology} from "../utils.js";
+import {getComputedOntology, depthFirstSearch} from "../utils.js";
 
 defineProps({
   msg: String,
 })
+
+let depthRange = ref(1)
+let searchText = ref("bouftou")
+
 
 const t = ref(null);
 onMounted(() => {
@@ -14,19 +18,24 @@ onMounted(() => {
   const canvas = t.value;
   canvas.width = width;
   canvas.height = height;
-
-  const {elements, relations} = getComputedOntology()
-  console.log(elements, relations);
-  const g = new Graph(elements, relations);
-  //
-  // canvas.style.width = width + 'px';
-  // canvas.style.height = height + 'px';
-  //
-
-  g.$onInit();
-
+  
+  watchEffect(() => {
+    const ontology = getComputedOntology()
+    if(ontology.elements[searchText.value.toLowerCase().replaceAll(" ", "_")]) {
+      const {elements, relations} = depthFirstSearch(searchText.value.toLowerCase().replaceAll(" ", "_"), getComputedOntology(), depthRange.value)
+      console.log(elements, relations)
+      const g = new Graph(elements, relations);
+      g.$onInit()
+    }
+  })
+  
 
 })
+
+function search() {
+  const {elements, relations} = depthFirstSearch(searchText, getComputedOntology(), depthRange)
+  return new Graph(elements, relations)
+}
 
 </script>
 
@@ -36,8 +45,11 @@ onMounted(() => {
       <h1>DofusMonsters</h1>
       <h3>&nbsp;Search for a node
         <label class="input">
-          <input class="input__field" type="text" placeholder=" " />
-          <span class="input__label">Some Fancy Label</span>
+          <input class="input__field" type="text" placeholder="Node name" v-model="searchText"/>
+        </label>
+        <label class="input">
+          <input type="range" min="1" max="5" step="1" v-model="depthRange">
+          {{ depthRange }}
         </label>
         <button>Search</button></h3>
     </hgroup>
