@@ -18,10 +18,6 @@ onMounted(() => {
   const {elements, relations} = getComputedOntology()
   console.log(elements, relations);
   const g = new Graph(elements, relations);
-  //
-  // canvas.style.width = width + 'px';
-  // canvas.style.height = height + 'px';
-  //
 
   g.$onInit();
 
