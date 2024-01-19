@@ -21,20 +21,14 @@ onMounted(() => {
   
   watchEffect(() => {
     const ontology = getComputedOntology()
-    if(ontology.elements[searchText.value.toLowerCase().replaceAll(" ", "_")]) {
-      const {elements, relations} = depthFirstSearch(searchText.value.toLowerCase().replaceAll(" ", "_"), getComputedOntology(), depthRange.value)
-      const g = new Graph(elements, relations);
+    const selectedNode = searchText.value.toLowerCase().replaceAll(" ", "_")
+    if(ontology.elements[selectedNode]) {
+      const {elements, relations} = depthFirstSearch(selectedNode, getComputedOntology(), depthRange.value)
+      const g = new Graph(elements, relations, canvas, selectedNode);
       g.$onInit()
     }
   })
-  
-
 })
-
-function search() {
-  const {elements, relations} = depthFirstSearch(searchText, getComputedOntology(), depthRange)
-  return new Graph(elements, relations)
-}
 
 </script>
 

@@ -1,8 +1,9 @@
 class Graph {
-    constructor(elements, connections, canvas) {
+    constructor(elements, connections, canvas, selectedNode) {
         this.canvas = canvas;
         this.zoomFactor = 1.0;
         this.zoomIncrement = 0.275;
+        this.selectedNode = selectedNode;
 
         this.elements = elements;
         Object.keys(elements).forEach((k,e)=>{
@@ -125,7 +126,8 @@ class Graph {
         for (let element in this.elements) {
             this.ctx.beginPath();
             this.ctx.arc(this.elements[element].x, this.elements[element].y, 20, 0, Math.PI * 2);
-            this.ctx.fillStyle = 'lightblue';
+            this.ctx.fillStyle = this.selectedNode === element ? 'red' : 'lightblue'; 
+            
             this.ctx.fill();
             this.ctx.stroke();
             this.ctx.fillStyle = 'black';
